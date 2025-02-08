@@ -43,7 +43,7 @@ class RekamJejakController extends Controller
                 'diagnosa'=>$diagnosa,
             ]);
 
-            return redirect()->route('rekam.success')->with('success','Data berhasil ditambahkan')->with('rekam', $rekam);
+            return redirect()->route('diagnosa.success')->with('success','Data berhasil ditambahkan')->with('rekam', $rekam);
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Terjadi kesalahan'.$e->getMessage());
         }
@@ -65,5 +65,9 @@ class RekamJejakController extends Controller
 
         // Return if patient is not found
         return redirect()->back()->with('error', 'Pasien tidak ditemukan');
+    }
+
+    public function diagnosaSukses(){
+        return view('sukses');
     }
 }

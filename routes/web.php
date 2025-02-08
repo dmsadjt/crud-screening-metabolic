@@ -13,6 +13,7 @@ Route::get('/baru', function () {
 });
 
 Route::get('/diagnosa', [RekamJejakController::class, 'diagnosaPasien'])->name('diagnosa.new');
-Route::post('/diagnosa', [RekamJejakController::class, 'submit']);
+Route::get('/diagnosa-berhasil', [RekamJejakController::class, 'diagnosaSukses'])->name('diagnosa.success');
+Route::post('/diagnosa-baru', [RekamJejakController::class, 'submit']);
 Route::post('/pasien-baru', [PasienController::class, 'new'])->name('pasien.new');
 Route::get('/pasien-baru', [PasienController::class, 'addSuccess'])->name('pasien.success');

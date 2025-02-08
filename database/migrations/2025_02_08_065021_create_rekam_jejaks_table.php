@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
 
-            $table->integer('pasien_id');
+            $table->uuid('pasien_id');
             $table->integer('lingkar_pinggang');
             $table->integer('trigliserida');
             $table->integer('hdl');
