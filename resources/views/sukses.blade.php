@@ -14,7 +14,6 @@
 </head>
 
 <body>
-
     <div class="container d-flex align-items-center justify-content-center vh-100">
         <div class="container border m-5 p-5 rounded bg-light">
             @if (session('success'))
@@ -31,7 +30,18 @@
             @endif
 
             @if (session('rekam'))
-                <p>{{ session('rekam')->diagnosa }}</p>
+                <p>Gula Darah Puasa: {{ session('rekam')->gula }} mg/dL</p>
+                <p>Trigliserida: {{ session('rekam')->trigliserida }} mg/dL</p>
+                <p>Kolesterol HDL: {{ session('rekam')->hdl }} mg/dL</p>
+                <p>Tekanan Darah: {{ session('rekam')->sistolik }}/{{ session('rekam')->diastolik }} mmHg</p>
+                <p>Lingkar Pinggang: {{ session('rekam')->lingkar_pinggang }} cm</p>
+                <p>Hasil Diagnosa:
+                    @if (session('rekam')->diagnosa == 1)
+                        <span class="text-danger">Sindrom Metabolik</span>
+                    @else
+                        <span class="text-success">Normal</span>
+                    @endif
+                </p>
             @endif
 
             <a href="/" class="btn btn-outline-dark">Kembali ke beranda</a>

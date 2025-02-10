@@ -1,3 +1,38 @@
+# Parameter Sindrom Metabolik
+
+## Tanda-Tanda Vital
+1. **Tekanan Darah:**
+   - **Normal:** < 130/85 mmHg
+   - **Sindrom Metabolik:** ≥ 130/85 mmHg
+2. **Denyut Nadi:**
+   - **Normal:** 60-100 denyut/menit
+   - **Sindrom Metabolik:** Tidak ada batasan spesifik
+
+## Parameter Kesehatan
+1. **Gula Darah Puasa:**
+   - **Normal:** < 100 mg/dL
+   - **Sindrom Metabolik:** ≥ 100 mg/dL
+2. **Trigliserida:**
+   - **Normal:** < 150 mg/dL
+   - **Sindrom Metabolik:** ≥ 150 mg/dL
+3. **Kolesterol HDL:**
+   - **Normal:** ≥ 40 mg/dL (pria), ≥ 50 mg/dL (wanita)
+   - **Sindrom Metabolik:** < 40 mg/dL (pria), < 50 mg/dL (wanita)
+4. **Lingkar Pinggang:**
+   - **Normal:** < 102 cm (pria), < 88 cm (wanita)
+   - **Sindrom Metabolik:** ≥ 102 cm (pria), ≥ 88 cm (wanita)
+
+## Kriteria Diagnostik Sindrom Metabolik
+Menurut Organisasi Kesehatan Dunia (WHO) dan American Heart Association (AHA), sindrom metabolik dapat didiagnosis jika pasien memiliki minimal **3 dari 5** kriteria berikut:
+
+1. **Lingkar pinggang** ≥ 102 cm (pria) atau ≥ 88 cm (wanita)
+2. **Trigliserida** ≥ 150 mg/dL
+3. **Kolesterol HDL** < 40 mg/dL (pria) atau < 50 mg/dL (wanita)
+4. **Tekanan darah** sistolik ≥ 130 mmHg atau diastolik ≥ 85 mmHg
+5. **Gula darah puasa** ≥ 100 mg/dL
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -60,6 +95,7 @@ In order to ensure that the Laravel community is welcoming to all, please review
 ## Security Vulnerabilities
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+
 
 ## License
 

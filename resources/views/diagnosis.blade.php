@@ -19,9 +19,24 @@
             @if (session('error'))
                 {{ session('error') }}
             @endif
+
+
+
             <a href="/" class="btn btn-sm btn-outline-danger mb-3">Kembali</a>
             <h1>Diagnosa Sindrom Metabolik</h1>
             <p>Masukkan data Anda untuk mengetahui risiko sindrom metabolik</p>
+
+            <div class="card mb-3 text-bg-success" style="max-width: 18rem;">
+                <div class="card-header">
+                    Informasi Pasien
+                </div>
+                <ul class="list-group list-group-flush text-primary">
+                    <li class="list-group-item"><b>Nama:</b> {{ $pasien->nama }}</li>
+                    <li class="list-group-item"><b>Jenis Kelamin:</b> {{ $pasien->jenis_kelamin }}</li>
+                    <li class="list-group-item"><b>NIK:</b> {{ $pasien->nik }}</li>
+                </ul>
+            </div>
+
             <form method="POST" action="/diagnosa-baru" id="form-diagnosa">
                 @csrf
                 <input type="hidden" value="{{ $pasien->id }}" name="pasien_id" id="pasien_id">

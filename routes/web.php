@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\RekamJejakController;
 use Illuminate\Support\Facades\Route;
@@ -17,3 +18,9 @@ Route::get('/diagnosa-berhasil', [RekamJejakController::class, 'diagnosaSukses']
 Route::post('/diagnosa-baru', [RekamJejakController::class, 'submit']);
 Route::post('/pasien-baru', [PasienController::class, 'new'])->name('pasien.new');
 Route::get('/pasien-baru', [PasienController::class, 'addSuccess'])->name('pasien.success');
+
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware('auth')
+    ->name('admin.dashboard');
+
+require __DIR__ . '/auth.php';

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('sistolik');
             $table->integer('diastolik');
             $table->integer('gula');
-            $table->text('diagnosa');
+            $table->boolean('diagnosa');
         });
     }
 
