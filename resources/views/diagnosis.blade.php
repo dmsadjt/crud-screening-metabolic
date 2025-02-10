@@ -15,18 +15,16 @@
 
 <body>
     <div class="container d-flex align-items-center justify-content-center vh-100">
-        <div class="container border m-5 p-5 rounded bg-light">
+        <div class="container border m-5 p-3 rounded bg-light">
             @if (session('error'))
                 {{ session('error') }}
             @endif
 
-
-
-            <a href="/" class="btn btn-sm btn-outline-danger mb-3">Kembali</a>
-            <h1>Diagnosa Sindrom Metabolik</h1>
+            <a href="/" class="btn btn-sm btn-outline-danger mb-2">Kembali</a>
+            <h2>Diagnosa Sindrom Metabolik</h2>
             <p>Masukkan data Anda untuk mengetahui risiko sindrom metabolik</p>
 
-            <div class="card mb-3 text-bg-success" style="max-width: 18rem;">
+            <div class="card mb-2 text-bg-success" style="max-width: 18rem;">
                 <div class="card-header">
                     Informasi Pasien
                 </div>
@@ -41,7 +39,7 @@
                 @csrf
                 <input type="hidden" value="{{ $pasien->id }}" name="pasien_id" id="pasien_id">
 
-                <div class="form-group mb-3">
+                <div class="form-group mb-2">
                     <label class="form-label" for="lp">Lingkar Pinggang (cm)</label>
                     <input type="number" class="form-control" name="lp" id="lp"
                         value="{{ old('lp') }}">
@@ -50,7 +48,7 @@
                     @enderror
                 </div>
 
-                <div class="form-group mb-3">
+                <div class="form-group mb-2">
                     <label class="form-label" for="trig">Trigliserida (mg/dL)</label>
                     <input type="number" class="form-control" name="trig" id="trig"
                         value="{{ old('trig') }}">
@@ -59,7 +57,7 @@
                     @enderror
                 </div>
 
-                <div class="form-group mb-3">
+                <div class="form-group mb-2">
                     <label class="form-label" for="hdl">HDL Kolesterol (mg/dL)</label>
                     <input type="number" class="form-control" name="hdl" id="hdl"
                         value="{{ old('hdl') }}">
@@ -68,7 +66,7 @@
                     @enderror
                 </div>
 
-                <div class="form-group mb-3">
+                <div class="form-group mb-2">
                     <label class="form-label" for="sistolik">Tekanan Darah Sistolik (mmHg)</label>
                     <input type="number" class="form-control" name="sistolik" id="sistolik"
                         value="{{ old('sistolik') }}">
@@ -77,7 +75,7 @@
                     @enderror
                 </div>
 
-                <div class="form-group mb-3">
+                <div class="form-group mb-2">
                     <label class="form-label" for="diastolik">Tekanan Darah Diastolik (mmHg)</label>
                     <input type="number" class="form-control" name="diastolik" id="diastolik"
                         value="{{ old('diastolik') }}">
@@ -86,7 +84,7 @@
                     @enderror
                 </div>
 
-                <div class="form-group mb-3">
+                <div class="form-group mb-2">
                     <label class="form-label" for="gula">Gula Darah Puasa (mg/dL)</label>
                     <input type="number" class="form-control" name="gula" id="gula"
                         value="{{ old('gula') }}">

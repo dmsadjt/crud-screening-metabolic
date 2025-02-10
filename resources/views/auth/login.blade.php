@@ -18,11 +18,11 @@
         <div class="container border m-5 p-5 rounded bg-light">
             <h1>Admin Log in</h1>
 
-            @if (session('error'))
+            @error('email')
                 <div class="alert alert-danger">
-                    {{ session('error') }}
+                    {{ $message }}
                 </div>
-            @endif
+            @enderror
 
             <form action="{{ route('login') }}" method="POST">
                 @csrf
@@ -36,7 +36,7 @@
                 <div class="mb-3">
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password"
-                        class="form-control @error('password') is-invalid @enderror">
+                        class="form-control @error('email') is-invalid @enderror">
                 </div>
 
                 <button class="btn btn-dark" type="submit">Log in</button>

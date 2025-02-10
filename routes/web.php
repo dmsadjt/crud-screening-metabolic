@@ -23,4 +23,8 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware('auth')
     ->name('admin.dashboard');
 
+Route::get('/detail/{pasien}', [PasienController::class, 'show'])
+    ->middleware('auth')
+    ->name('admin.pasien.show');
+
 require __DIR__ . '/auth.php';

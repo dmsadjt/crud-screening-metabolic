@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pasien;
+use App\Models\RekamJejak;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -32,5 +33,10 @@ class PasienController extends Controller
 
     public function addSuccess() {
         return view('sukses');
+    }
+
+    public function show(Pasien $pasien) {
+        $riwayat = RekamJejak::where('pasien_id', $pasien->id)->get();
+        return view('admin.pasien.view', compact(['pasien', 'riwayat']));
     }
 }

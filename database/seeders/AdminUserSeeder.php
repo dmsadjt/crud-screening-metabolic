@@ -14,12 +14,10 @@ class AdminUserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::updateOrCreate(
-            ['email' => 'admin@metabolic.com'], // Prevent duplicate entries
-            [
-                'name' => 'admin',
-                'password' => Hash::make('password') // Hash the password securely
-            ]
-        );
+        User::insert([
+            'name'=>'Administrator',
+            'email'=>'admin@metabolic.com',
+            'password'=>Hash::make('password'),
+        ]);
     }
 }
