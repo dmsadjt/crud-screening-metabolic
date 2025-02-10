@@ -18,7 +18,6 @@
         <div class="container border m-5 p-5 rounded bg-light">
             <h2>{{ $pasien->nama }}</h2>
             <p class="fs-6">NIK {{ $pasien->nik }} | {{ $pasien->jenis_kelamin }}</p>
-
             <p class="fs-5 fw-bold">Riwayat Screening</p>
             <table class="table table-bordered">
                 <thead>
@@ -74,10 +73,8 @@
                             </td>
                         </tr>
                     @endforeach
-
                 </tbody>
             </table>
-
         </div>
     </div>
 </body>
