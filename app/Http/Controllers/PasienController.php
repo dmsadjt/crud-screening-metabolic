@@ -68,8 +68,9 @@ class PasienController extends Controller
         return redirect()->route('admin.dashboard')->with('success', 'Data pasien berhasil diperbarui');
     }
 
-    public function delete(Pasien $pasien) {
-        $pasien->rekamMedis()->detach();
+    public function delete(Pasien $pasien)
+    {
+        $pasien->rekamMedis()->delete();
         $pasien->delete();
 
         return redirect()->route('admin.dashboard')->with('success', 'Data telah berhasil dihapus');

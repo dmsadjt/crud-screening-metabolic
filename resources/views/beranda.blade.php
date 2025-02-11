@@ -26,14 +26,13 @@
                 <button type="submit" class="btn btn-dark mb-3">Cari</button>
             </form>
             <p>Belum pernah screening? daftar sebagai pasien baru</p>
-            <a href="/baru" class="btn btn-outline-info mb-3">Pasien baru</a>
+            <a href="/baru" class="btn btn-outline-info mb-3">Pasien baru</a><br>
 
             @if (session('error'))
                 <div class="alert alert-danger">
                     {{ session('error') }}
                 </div>
             @endif
-
         </div>
     </div>
 

@@ -39,29 +39,40 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($pasien as $key => $p)
-                        <tr class="table-light">
-                            <td>{{ $key + 1 }}</td>
-                            <td>{{ $p->nama }}</td>
-                            <td>
-                                {{ $p->nik }}
-                            </td>
-                            <td>
-                                {{ $p->jenis_kelamin }}
-                            </td>
-                            <td><a href="{{ route('admin.pasien.show', $p) }}" class="btn btn-sm btn-success"><i
-                                        class="bi bi-eye"></i></a>
-                                <a type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#updatePasien" data-id="{{ $p->id }}"
-                                    data-nama="{{ $p->nama }}" data-nik="{{ $p->nik }}"
-                                    data-jenis_kelamin="{{ $p->jenis_kelamin }}">
-                                    <i class="bi bi-pencil"></i>
-                                </a>
-                                <a href="{{ route('admin.pasien.delete', $p) }}" class="btn btn-sm btn-delete">
-                                    <i class="bi bi-trash"></i></a>
-                            </td>
+                    @if ($pasien->isEmpty())
+                        <tr>
+                            <td colspan="5" class="text-center text-muted">Tidak ada data tersedia</td>
                         </tr>
-                    @endforeach
+                    @else
+                        @foreach ($pasien as $key => $p)
+                            <tr class="table-light">
+                                <td>{{ $key + 1 }}</td>
+                                <td>{{ $p->nama }}</td>
+                                <td>{{ $p->nik }}</td>
+                                <td>{{ $p->jenis_kelamin }}</td>
+                                <td>
+                                    <a href="{{ route('admin.pasien.show', $p) }}" class="btn btn-sm btn-success">
+                                        <i class="bi bi-eye"></i>
+                                    </a>
+                                    <a type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                        data-bs-target="#updatePasien" data-id="{{ $p->id }}"
+                                        data-nama="{{ $p->nama }}" data-nik="{{ $p->nik }}"
+                                        data-jenis_kelamin="{{ $p->jenis_kelamin }}">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
+                                    <form action="{{ route('admin.pasien.delete', $p) }}" method="POST"
+                                        style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger"
+                                            onclick="return confirm('Are you sure?')">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
                 </tbody>
                 <tr class="table-light">
                     <td colspan="6" class="text-center">

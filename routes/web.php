@@ -31,4 +31,12 @@ Route::put('/update-pasien', [PasienController::class, 'update'])
     ->middleware('auth')
     ->name('admin.pasien.update');
 
+Route::delete('/delete-pasien/{pasien}', [PasienController::class, 'delete'])
+    ->middleware('auth')
+    ->name('admin.pasien.delete');
+
+Route::put('/update-riwayat', [RekamJejakController::class, 'update'])
+    ->middleware('auth')
+    ->name('admin.rekam.update');
+
 require __DIR__ . '/auth.php';

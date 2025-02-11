@@ -19,8 +19,6 @@
             @if (session('error'))
                 {{ session('error') }}
             @endif
-
-            <a href="/" class="btn btn-sm btn-outline-danger mb-2">Kembali</a>
             <h2>Diagnosa Sindrom Metabolik</h2>
             <p>Masukkan data Anda untuk mengetahui risiko sindrom metabolik</p>
 

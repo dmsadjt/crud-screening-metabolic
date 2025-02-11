@@ -82,6 +82,45 @@ class RekamJejakController extends Controller
         }
     }
 
+    public function update(Request $request)
+    {
+        $rules = [
+            'id' => 'required|exists:rekam_jejaks,id', // Ensure ID is provided and exists in the database
+            'pasien_id' => 'required|exists:pasiens,id',
+            'lingkar_pinggang' => 'required',
+            'trigliserida' => 'required',
+            'hdl' => 'required',
+            'sistolik' => 'required',
+            'diastolik' => 'required',
+            'gula' => 'required',
+        ];
+
+        $data = $request->validate($rules);
+
+        $rekam = RekamJejak::findOrFail($data['id']);
+        $pasien = Pasien::findOrFail($data['pasien_id']);
+
+        $diagnosa = $this->diagnose($data['lingkar_pinggang'], $data['trigliserida'], $data['hdl'], $data['sistolik'], $data['diastolik'], $data['gula'], $pasien->jenis_kelamin);
+
+        try {
+            $rekam->update([
+                'pasien_id' => $data['pasien_id'],
+                'lingkar_pinggang' => $data['lingkar_pinggang'],
+                'trigliserida' => $data['trigliserida'],
+                'hdl' => $data['hdl'],
+                'sistolik' => $data['sistolik'],
+                'diastolik' => $data['diastolik'],
+                'gula' => $data['gula'],
+                'diagnosa' => $diagnosa,
+            ]);
+
+            return redirect()->route('admin.pasien.view', $pasien)->with('success', 'Data berhasil diperbarui');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        }
+    }
+
+
     public function diagnosaPasien(Request $request)
     {
         // GET NIK from request
