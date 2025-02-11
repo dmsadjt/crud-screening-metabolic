@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
     <title>Admin Dashboard</title>
 </head>
 
@@ -33,7 +35,7 @@
                         <th>Nama</th>
                         <th>NIK</th>
                         <th>Jenis Kelamin</th>
-                        <th>Detail pasien</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,14 +49,16 @@
                             <td>
                                 {{ $p->jenis_kelamin }}
                             </td>
-                            <td><a href="{{ route('admin.pasien.show', $p) }}" class="btn btn-sm btn-success">Detail
-                                    >></a>
+                            <td><a href="{{ route('admin.pasien.show', $p) }}" class="btn btn-sm btn-success"><i
+                                        class="bi bi-eye"></i></a>
                                 <a type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
                                     data-bs-target="#updatePasien" data-id="{{ $p->id }}"
                                     data-nama="{{ $p->nama }}" data-nik="{{ $p->nik }}"
                                     data-jenis_kelamin="{{ $p->jenis_kelamin }}">
-                                    Sunting
+                                    <i class="bi bi-pencil"></i>
                                 </a>
+                                <a href="{{ route('admin.pasien.delete', $p) }}" class="btn btn-sm btn-delete">
+                                    <i class="bi bi-trash"></i></a>
                             </td>
                         </tr>
                     @endforeach

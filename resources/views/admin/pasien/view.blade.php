@@ -10,6 +10,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <title>Detail Pasien {{ $pasien->nama }}</title>
 </head>
 
@@ -22,9 +23,7 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Created At</th>
-                        <th>Pasien ID</th>
+                        <th>Tanggal</th>
                         <th>Lingkar Pinggang</th>
                         <th>Trigliserida</th>
                         <th>HDL</th>
@@ -32,19 +31,16 @@
                         <th>Diastolik</th>
                         <th>Gula</th>
                         <th>Diagnosa</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($riwayat as $item)
                         <tr>
                             <td>
-                                {{ $item->id }}
-                            </td>
-                            <td>
-                                {{$item->created_at}}
-                            </td>
-                            <td>
-                                {{ $item->pasien_id }}
+
+                                {{ \Carbon\Carbon::parse($item->created_at)->format('d F Y') }}
+
                             </td>
                             <td>
                                 {{ $item->lingkar_pinggang }}
@@ -66,10 +62,23 @@
                             </td>
                             <td>
                                 @if ($item->diagnosa == 1)
-                                <span class="text-danger">Sindrom Metabolik</span>
-                            @else
-                                <span class="text-success">Normal</span>
-                            @endif
+                                    <span class="text-danger">Sindrom Metabolik</span>
+                                @else
+                                    <span class="text-success">Normal</span>
+                                @endif
+                            </td>
+                            <td>
+                                <a class="btn btn-sm btn-primary">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <form method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-danger"
+                                        onclick="return confirm('Are you sure?')">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
