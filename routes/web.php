@@ -27,4 +27,8 @@ Route::get('/detail/{pasien}', [PasienController::class, 'show'])
     ->middleware('auth')
     ->name('admin.pasien.show');
 
+Route::put('/update-pasien', [PasienController::class, 'update'])
+    ->middleware('auth')
+    ->name('admin.pasien.update');
+
 require __DIR__ . '/auth.php';

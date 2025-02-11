@@ -24,7 +24,7 @@
             <h2>Diagnosa Sindrom Metabolik</h2>
             <p>Masukkan data Anda untuk mengetahui risiko sindrom metabolik</p>
 
-            <div class="card mb-2 text-bg-success" style="max-width: 18rem;">
+            <div class="card mb-2 text-bg-success fs-6" style="max-width: 18rem;">
                 <div class="card-header">
                     Informasi Pasien
                 </div>
