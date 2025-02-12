@@ -16,7 +16,14 @@
 
 <body>
     <div class="container d-flex align-items-center justify-content-center vh-100 flex-column">
+
         <div class="container border m-5 p-5 rounded bg-light">
+            <p class="fw-bold text-primary">
+                <a href="{{route('admin.dashboard')}}" class="btn btn-secondary btn-sm">
+                    <i class="bi bi-arrow-left"></i> 
+                </a>
+                Masuk sebagai <span class="link-success">{{ Auth::user()->name }}</span>
+            </p>
             <h2>{{ $pasien->nama }}</h2>
             <p class="fs-6">NIK {{ $pasien->nik }} | {{ $pasien->jenis_kelamin }}</p>
             <p class="fs-5 fw-bold">Riwayat Screening</p>
@@ -76,15 +83,15 @@
                                     data-pasien="{{ $item->pasien_id }}">
                                     <i class="bi bi-pencil"></i>
                                 </a>
-                                <form method="POST" action="{{ route('admin.rekam.delete', $item) }}"
-                                    style="display:inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger"
-                                        onclick="return confirm('Are you sure?')">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </form>
+                                <form action="{{ route('admin.rekam.delete', $item) }}" method="POST"
+                                        style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger"
+                                            onclick="return confirm('Are you sure?')">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </form>
                             </td>
                         </tr>
                     @endforeach

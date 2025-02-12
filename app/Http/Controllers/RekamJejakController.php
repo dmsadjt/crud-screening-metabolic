@@ -144,11 +144,11 @@ class RekamJejakController extends Controller
         return view('sukses');
     }
 
-    public function delete($rekam)
+    public function delete(RekamJejak $rekam)
     {
         $pasien = Pasien::where('id', $rekam->pasien_id)->first();
         $rekam->delete();
-
+    
         return redirect()->route('admin.pasien.show', $pasien)->with('success', 'Data telah berhasil dihapus');
     }
 }
