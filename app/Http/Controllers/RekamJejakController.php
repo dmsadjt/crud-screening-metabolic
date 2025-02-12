@@ -114,7 +114,7 @@ class RekamJejakController extends Controller
                 'diagnosa' => $diagnosa,
             ]);
 
-            return redirect()->route('admin.pasien.view', $pasien)->with('success', 'Data berhasil diperbarui');
+            return redirect()->route('admin.pasien.show', $pasien)->with('success', 'Data berhasil diperbarui');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
@@ -142,5 +142,13 @@ class RekamJejakController extends Controller
     public function diagnosaSukses()
     {
         return view('sukses');
+    }
+
+    public function delete($rekam)
+    {
+        $pasien = Pasien::where('id', $rekam->pasien_id)->first();
+        $rekam->delete();
+
+        return redirect()->route('admin.pasien.show', $pasien)->with('success', 'Data telah berhasil dihapus');
     }
 }

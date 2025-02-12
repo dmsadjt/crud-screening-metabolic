@@ -39,4 +39,8 @@ Route::put('/update-riwayat', [RekamJejakController::class, 'update'])
     ->middleware('auth')
     ->name('admin.rekam.update');
 
+Route::delete('/delete-rekam/{rekam}', [RekamJejakController::class, 'delete'])
+    ->middleware('auth')
+    ->name('admin.rekam.delete');
+
 require __DIR__ . '/auth.php';

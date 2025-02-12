@@ -76,7 +76,8 @@
                                     data-pasien="{{ $item->pasien_id }}">
                                     <i class="bi bi-pencil"></i>
                                 </a>
-                                <form method="POST" style="display:inline;">
+                                <form method="POST" action="{{ route('admin.rekam.delete', $item) }}"
+                                    style="display:inline;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger"
@@ -90,6 +91,20 @@
                 </tbody>
             </table>
         </div>
+
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto">Notifikasi</strong>
+                    <small>Baru saja</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    {{ session('success') }}
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <div class="modal fade" id="updateRekam" tabindex="-1" aria-labelledby="updateRekamLabel" aria-hidden="true">
@@ -129,7 +144,8 @@
 
                         <div class="mb-3">
                             <label for="edit-diastolik" class="form-label">Diastolik (mmHg)</label>
-                            <input type="number" class="form-control" id="edit-diastolik" name="diastolik" required>
+                            <input type="number" class="form-control" id="edit-diastolik" name="diastolik"
+                                required>
                         </div>
 
                         <div class="mb-3">
@@ -147,7 +163,18 @@
         </div>
     </div>
 
+
+
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var successMessage = "{{ session('success') }}";
+            if (successMessage) {
+                var toastElement = document.getElementById("liveToast");
+                var toast = new bootstrap.Toast(toastElement);
+                toast.show();
+            }
+        })
+
         document.getElementById("updateRekam").addEventListener("show.bs.modal", function(event) {
             let button = event.relatedTarget;
 

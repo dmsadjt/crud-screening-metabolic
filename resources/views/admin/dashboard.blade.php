@@ -16,7 +16,6 @@
 </head>
 
 <body>
-
     <div class="container d-flex align-items-center justify-content-center vh-100 flex-column">
         <div class="container border m-5 p-5 rounded bg-light">
             <p class="fw-bold text-primary">
