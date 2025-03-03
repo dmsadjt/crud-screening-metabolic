@@ -1,0 +1,52 @@
+Project Metabolic {
+    database_type: 'MySQL'
+}
+
+Table pasien as P{
+    id UUID [pk]
+    created_at timestamp
+    updated_at timestamp
+    nama text
+    nik varchar(16) [unique]
+    jenis_kelamin text
+}
+
+Table rekam as R {
+  id int [primary key, increment]
+  created_at timestamp
+  updated_at timestamp
+
+  pasien_id UUID
+  lingkar_pinggang int
+  trigliserida int
+  hdl int
+  sistolik int
+  diastolik int
+  gula int
+  diagnosa int
+}
+Ref: R.pasien_id > P.id
+
+Table diagnosis as D {
+    id int [primary key, increment]
+    created_at timestamp
+    updated_at timestamp
+
+    keterangan text
+    deskripsi text
+}
+
+Ref: R.diagnosa > D.id
+
+Table rekomendasi as A {
+    id int [primary key, increment]
+    created_at timestamp
+    updated_at timestamp
+
+    diagnosis_id int
+    category text
+    reccomendation text
+}
+
+Ref: A.diagnosis_id > D.id
+

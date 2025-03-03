@@ -19,7 +19,13 @@ class RekamJejak extends Model
         'diagnosa'
     ];
 
-    public function pasien() {
+    public function pasien()
+    {
         return $this->belongsTo(Pasien::class, 'pasien_id');
+    }
+
+    public function diagnosis()
+    {
+        return $this->hasOne(Diagnosis::class . 'diagnosa');
     }
 }
