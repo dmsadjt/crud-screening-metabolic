@@ -42,9 +42,15 @@ class RekamJejakController extends Controller
             $criteria_met++;
         }
 
-        if ($criteria_met >= 3) {
-            return true;
-        } else return false;
+        if ($criteria_met == 3) {
+            return 2;
+        } elseif ($criteria_met == 4) {
+            return 3;
+        } elseif ($criteria_met == 5) {
+            return 4;
+        } else {
+            return 1;
+        }
     }
 
     public function submit(Request $request)
@@ -75,7 +81,7 @@ class RekamJejakController extends Controller
                 'gula' => $data['gula'],
                 'diagnosa' => $diagnosa,
             ]);
-
+            dd($rekam);
             return redirect()->route('diagnosa.success')->with('success', 'Data berhasil ditambahkan')->with('rekam', $rekam)->with('pasien', $pasien);
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Terjadi kesalahan' . $e->getMessage());
@@ -148,7 +154,7 @@ class RekamJejakController extends Controller
     {
         $pasien = Pasien::where('id', $rekam->pasien_id)->first();
         $rekam->delete();
-    
+
         return redirect()->route('admin.pasien.show', $pasien)->with('success', 'Data telah berhasil dihapus');
     }
 }

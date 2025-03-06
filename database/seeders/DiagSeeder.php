@@ -14,6 +14,10 @@ class DiagSeeder extends Seeder
     public function run(): void
     {
         Diagnosis::insert([
+            'keterangan' => 'Normal',
+            'deskripsi' => 'Fokus: Tetap mempertahankan hidup sehat'
+        ]);
+        Diagnosis::insert([
             'keterangan' => 'Sindrom Metabolik Ringan',
             'deskripsi' => 'Fokus: Pencegahan lebih lanjut dan perbaikan pola hidup'
         ]);

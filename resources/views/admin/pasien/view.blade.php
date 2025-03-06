@@ -18,9 +18,10 @@
     <div class="container d-flex align-items-center justify-content-center vh-100 flex-column">
 
         <div class="container border m-5 p-5 rounded bg-light">
+            <p>{{ $pasien }}</p>
             <p class="fw-bold text-primary">
-                <a href="{{route('admin.dashboard')}}" class="btn btn-secondary btn-sm">
-                    <i class="bi bi-arrow-left"></i> 
+                <a href="{{ route('admin.dashboard') }}" class="btn btn-secondary btn-sm">
+                    <i class="bi bi-arrow-left"></i>
                 </a>
                 Masuk sebagai <span class="link-success">{{ Auth::user()->name }}</span>
             </p>
@@ -66,8 +67,10 @@
                             </td>
                             <td>
                                 {{ $item->gula }}
+
                             </td>
                             <td>
+                                {{ $item->diagnosis() }}
                                 @if ($item->diagnosa == 1)
                                     <span class="text-danger">Sindrom Metabolik</span>
                                 @else
@@ -84,14 +87,14 @@
                                     <i class="bi bi-pencil"></i>
                                 </a>
                                 <form action="{{ route('admin.rekam.delete', $item) }}" method="POST"
-                                        style="display:inline;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger"
-                                            onclick="return confirm('Are you sure?')">
-                                            <i class="bi bi-trash"></i>
-                                        </button>
-                                    </form>
+                                    style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-danger"
+                                        onclick="return confirm('Are you sure?')">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
