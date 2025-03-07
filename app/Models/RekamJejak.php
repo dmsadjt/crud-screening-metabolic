@@ -26,6 +26,6 @@ class RekamJejak extends Model
 
     public function diagnosis()
     {
-        return $this->hasOne(Diagnosis::class . 'diagnosa');
+        return $this->belongsTo(Diagnosis::class, 'diagnosa');
     }
 }

@@ -12,6 +12,6 @@ class Diagnosis extends Model
 
     public function rekamMedis()
     {
-        return $this->belongsToMany(RekamJejak::class);
+        return $this->hasMany(RekamJejak::class, 'diagnosa');
     }
 }

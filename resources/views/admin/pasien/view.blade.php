@@ -18,7 +18,6 @@
     <div class="container d-flex align-items-center justify-content-center vh-100 flex-column">
 
         <div class="container border m-5 p-5 rounded bg-light">
-            <p>{{ $pasien }}</p>
             <p class="fw-bold text-primary">
                 <a href="{{ route('admin.dashboard') }}" class="btn btn-secondary btn-sm">
                     <i class="bi bi-arrow-left"></i>
@@ -70,11 +69,13 @@
 
                             </td>
                             <td>
-                                {{ $item->diagnosis() }}
-                                @if ($item->diagnosa == 1)
-                                    <span class="text-danger">Sindrom Metabolik</span>
+                                @if ($item->diagnosa > 1)
+                                    <span class="text-danger fw-bold">{{ $item->diagnosis->keterangan }}
+                                    </span><br>
+                                    <span class="fw-light">{{ $item->diagnosis->deskripsi }}</span>
                                 @else
-                                    <span class="text-success">Normal</span>
+                                    <span class="text-success fw-bold">Normal</span>
+                                    <span class="fw-light">{{ $item->diagnosis->deskripsi }}</span>
                                 @endif
                             </td>
                             <td>
