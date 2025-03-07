@@ -36,10 +36,11 @@
                 <p>Tekanan Darah: {{ session('rekam')->sistolik }}/{{ session('rekam')->diastolik }} mmHg</p>
                 <p>Lingkar Pinggang: {{ session('rekam')->lingkar_pinggang }} cm</p>
                 <p>Hasil Diagnosa:
-                    @if (session('rekam')->diagnosa == 1)
-                        <span class="text-danger">Sindrom Metabolik</span>
+                    @if (session('rekam')->diagnosa > 1)
+                        <span class="text-danger fw-bold">{{ session('rekam')->diagnosis->keterangan }}
+                        </span><br>
                     @else
-                        <span class="text-success">Normal</span>
+                        <span class="text-success fw-bold">Normal</span>
                     @endif
                 </p>
             @endif

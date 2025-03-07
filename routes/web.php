@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\RekamJejakController;
+use App\Http\Controllers\RekomendasiController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -42,5 +43,7 @@ Route::put('/update-riwayat', [RekamJejakController::class, 'update'])
 Route::delete('/delete-rekam/{rekam}', [RekamJejakController::class, 'delete'])
     ->middleware('auth')
     ->name('admin.rekam.delete');
+
+Route::get('/recommendations/{id}', [RekomendasiController::class, 'getByDiagnosis']);
 
 require __DIR__ . '/auth.php';

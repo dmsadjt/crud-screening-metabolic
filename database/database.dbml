@@ -45,7 +45,7 @@ Table rekomendasi as A {
 
     diagnosis_id int
     category text
-    reccomendation text
+    recommendation text
 }
 
 Ref: A.diagnosis_id > D.id

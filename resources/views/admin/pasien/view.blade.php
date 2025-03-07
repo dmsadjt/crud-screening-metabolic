@@ -45,9 +45,7 @@
                     @foreach ($riwayat as $item)
                         <tr>
                             <td>
-
                                 {{ \Carbon\Carbon::parse($item->created_at)->format('d F Y') }}
-
                             </td>
                             <td>
                                 {{ $item->lingkar_pinggang }}
@@ -87,6 +85,10 @@
                                     data-pasien="{{ $item->pasien_id }}">
                                     <i class="bi bi-pencil"></i>
                                 </a>
+                                <a class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#rekomendasi"
+                                    data-diagnosis={{ $item->diagnosa }}>
+                                    <i class="bi bi-bandaid"></i>
+                                </a>
                                 <form action="{{ route('admin.rekam.delete', $item) }}" method="POST"
                                     style="display:inline;">
                                     @csrf
@@ -118,6 +120,20 @@
 
     </div>
 
+    <div class="modal fade" id="rekomendasi" tabindex="-1" aria-labelledby="rekomendasiLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="rekomendasiLabel">Rekomendasi dan Edukasi</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="rekomendasi-body" class="modal-body">
+                    <p>Loading recommendation...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="modal fade" id="updateRekam" tabindex="-1" aria-labelledby="updateRekamLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -134,7 +150,8 @@
 
                         <div class="mb-3">
                             <label for="edit-lp" class="form-label">Lingkar Pinggang (cm)</label>
-                            <input type="number" class="form-control" id="edit-lp" name="lingkar_pinggang" required>
+                            <input type="number" class="form-control" id="edit-lp" name="lingkar_pinggang"
+                                required>
                         </div>
 
                         <div class="mb-3">
@@ -174,9 +191,37 @@
         </div>
     </div>
 
-
-
     <script>
+        const rekomendasiModal = document.getElementById('rekomendasi');
+        rekomendasiModal.addEventListener('show.bs.modal', function(event) {
+            const button = event.relatedTarget;
+            const diagnosisId = button.getAttribute('data-diagnosis');
+
+            const rekomendasiBody = document.getElementById('rekomendasi-body');
+            rekomendasiBody.innerHTML = '<p>Loading recommendations...</p>';
+
+            fetch(`/recommendations/${diagnosisId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        rekomendasiBody.innerHTML = `<p>${data.message}</p>`;
+                        return;
+                    }
+
+                    let content = '';
+                    for (const [category, items] of Object.entries(data)) {
+                        content += `<p class="fw-bold">${category}</p>`;
+                        items.forEach(item => {
+                            content += `<p>${item.recommendation}</p>`;
+                        });
+                    }
+                    rekomendasiBody.innerHTML = content || '<p>No recommendations found.</p>';
+                })
+                .catch(() => {
+                    rekomendasiBody.innerHTML = '<p>Failed to load recommendations.</p>';
+                });
+        });
+
         document.addEventListener("DOMContentLoaded", function() {
             var successMessage = "{{ session('success') }}";
             if (successMessage) {

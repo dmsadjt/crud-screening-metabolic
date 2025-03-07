@@ -14,4 +14,9 @@ class Diagnosis extends Model
     {
         return $this->hasMany(RekamJejak::class, 'diagnosa');
     }
+
+    public function rekomendasi()
+    {
+        return $this->hasMany(Rekomendasi::class);
+    }
 }

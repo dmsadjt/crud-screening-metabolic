@@ -81,7 +81,6 @@ class RekamJejakController extends Controller
                 'gula' => $data['gula'],
                 'diagnosa' => $diagnosa,
             ]);
-            dd($rekam);
             return redirect()->route('diagnosa.success')->with('success', 'Data berhasil ditambahkan')->with('rekam', $rekam)->with('pasien', $pasien);
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Terjadi kesalahan' . $e->getMessage());
