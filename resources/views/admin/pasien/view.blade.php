@@ -28,10 +28,22 @@
             <p class="fs-6">NIK {{ $pasien->nik }} | {{ $pasien->jenis_kelamin }}</p>
             <p class="fs-5 fw-bold">Riwayat Screening</p>
             <table class="table table-bordered">
+                <colgroup>
+                    <col style="width: 10%;">
+                    <col style="width: 5%;">
+                    <col style="width: 5%;">
+                    <col style="width: 5%;">
+                    <col style="width: 5%;">
+                    <col style="width: 5%;">
+                    <col style="width: 5%;">
+                    <col style="width: 40%;">
+                    <col style="width: 15%;">
+                </colgroup>
+
                 <thead>
                     <tr>
                         <th>Tanggal</th>
-                        <th>Lingkar Pinggang</th>
+                        <th>LP</th>
                         <th>Trigliserida</th>
                         <th>HDL</th>
                         <th>Sistolik</th>
@@ -85,10 +97,15 @@
                                     data-pasien="{{ $item->pasien_id }}">
                                     <i class="bi bi-pencil"></i>
                                 </a>
-                                <a class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#rekomendasi"
-                                    data-diagnosis={{ $item->diagnosa }}>
-                                    <i class="bi bi-bandaid"></i>
-                                </a>
+                                @if ($item->diagnosa > 1)
+                                    <a class="btn btn-sm btn-success" data-bs-toggle="modal"
+                                        data-bs-target="#rekomendasi" data-diagnosis={{ $item->diagnosa }}>
+                                        <i class="bi bi-file-earmark-medical"></i>
+                                    </a>
+                                    <a class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#toga"
+                                        {{-- data-diagnosis={{ $item->toga }}> --}}><i class="bi bi-flower3"></i>
+                                    </a>
+                                @endif
                                 <form action="{{ route('admin.rekam.delete', $item) }}" method="POST"
                                     style="display:inline;">
                                     @csrf
