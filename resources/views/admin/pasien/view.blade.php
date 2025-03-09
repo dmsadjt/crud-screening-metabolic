@@ -151,6 +151,20 @@
         </div>
     </div>
 
+    <div class="modal fade" id="toga" tabindex="-1" aria-labelledby="togaLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="togaLabel">Rekomendasi Toga</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="rekomendasi-body" class="modal-body">
+                    <p>Loading recommendation...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="modal fade" id="updateRekam" tabindex="-1" aria-labelledby="updateRekamLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
