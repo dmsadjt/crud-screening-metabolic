@@ -15,7 +15,14 @@
 
 <body>
     <div class="container d-flex align-items-center justify-content-center vh-100">
-        <div class="container border m-5 p-5 rounded bg-light">
+        <div class="container border m-5 p-5 rounded bg-light w-50">
+
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
+
             <h1>Admin Log in</h1>
 
             @error('email')

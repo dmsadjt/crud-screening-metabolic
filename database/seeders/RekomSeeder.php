@@ -60,6 +60,26 @@ class RekomSeeder extends Seeder
                 'recommendation' => 'Konsultasikan dengan tenaga kesehatan jika ada gejala yang memburuk.'
             ],
             [
+                'diagnosis_id' => 2,
+                'category' => 'Diversifikasi TOGA',
+                'recommendation' => 'Jahe (Zingiber officinale): Dapat dikonsumsi dalam teh atau campuran makanan untuk meningkatkan sensitivitas insulin.'
+            ],
+            [
+                'diagnosis_id' => 2,
+                'category' => 'Diversifikasi TOGA',
+                'recommendation' => 'Daun kelor (Moringa oleifera): Dikonsumsi sebagai sayur atau teh untuk membantu mengontrol tekanan darah dan gula darah.'
+            ],
+            [
+                'diagnosis_id' => 2,
+                'category' => 'Pola Makan Sehat Berbasis TOGA',
+                'recommendation' => 'Konsumsi jahe dan temulawak sebagai antiinflamasi alami yang membantu meningkatkan metabolisme dan mengontrol gula darah.'
+            ],
+            [
+                'diagnosis_id' => 2,
+                'category' => 'Pola Makan Sehat Berbasis TOGA',
+                'recommendation' => 'Teh daun kelor sebagai sumber antioksidan tinggi yang dapat membantu mengontrol tekanan darah dan kolesterol.'
+            ],
+            [
                 'diagnosis_id' => 3,
                 'category' => 'Pola Makan Ketat',
                 'recommendation' => 'Terapkan diet DASH atau Mediterania untuk menurunkan risiko hipertensi dan diabetes.'
@@ -115,6 +135,26 @@ class RekomSeeder extends Seeder
                 'recommendation' => 'Lakukan aktivitas relaksasi seperti olahraga ringan, mendengarkan musik, atau menulis jurnal.'
             ],
             [
+                'diagnosis_id' => 3,
+                'category' => 'Diversifikasi TOGA',
+                'recommendation' => 'Pare (Momordica charantia): Dapat dikonsumsi sebagai jus atau sayur untuk membantu menurunkan kadar gula darah.'
+            ],
+            [
+                'diagnosis_id' => 3,
+                'category' => 'Diversifikasi TOGA',
+                'recommendation' => 'Kayu manis (Cinnamomum verum): Dapat ditambahkan ke dalam teh atau makanan untuk membantu mengatur kadar gula darah.'
+            ],
+            [
+                'diagnosis_id' => 3,
+                'category' => 'Pola Makan Ketat Berbasis TOGA',
+                'recommendation' => 'Rutin konsumsi pare yang dapat membantu menurunkan kadar gula darah.'
+            ],
+            [
+                'diagnosis_id' => 3,
+                'category' => 'Pola Makan Ketat Berbasis TOGA',
+                'recommendation' => 'Kurma dan kayu manis sebagai pemanis alami yang lebih sehat dibandingkan gula pasir.'
+            ],
+            [
                 'diagnosis_id' => 4,
                 'category' => 'Diet Ketat dan Pengelolaan Gula Darah',
                 'recommendation' => 'Batasi asupan karbohidrat sederhana dan pilih makanan dengan indeks glikemik rendah.'
@@ -168,6 +208,26 @@ class RekomSeeder extends Seeder
                 'diagnosis_id' => 4,
                 'category' => 'Dukungan Psikososial',
                 'recommendation' => 'Hindari stres berlebihan yang bisa memperburuk kondisi sindrom metabolik.'
+            ],
+            [
+                'diagnosis_id' => 4,
+                'category' => 'Diversifikasi TOGA',
+                'recommendation' => 'Daun sambiloto (Andrographis paniculata): Bisa dikonsumsi sebagai kapsul herbal atau teh untuk membantu menurunkan kadar gula darah.'
+            ],
+            [
+                'diagnosis_id' => 4,
+                'category' => 'Diversifikasi TOGA',
+                'recommendation' => 'Bawang putih (Allium sativum): Dapat dikonsumsi mentah atau dalam masakan untuk menurunkan tekanan darah dan kadar kolesterol.'
+            ],
+            [
+                'diagnosis_id' => 4,
+                'category' => 'Diet Ketat dan Pengelolaan Gula Darah Berbasis TOGA',
+                'recommendation' => 'Daun sambiloto untuk membantu menurunkan kadar gula darah dan sebagai antiinflamasi alami.'
+            ],
+            [
+                'diagnosis_id' => 4,
+                'category' => 'Diet Ketat dan Pengelolaan Gula Darah Berbasis TOGA',
+                'recommendation' => 'Rutin konsumsi bawang putih untuk menurunkan tekanan darah dan kadar kolesterol.'
             ]
         ];
 

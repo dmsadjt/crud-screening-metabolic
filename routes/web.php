@@ -14,6 +14,10 @@ Route::get('/baru', function () {
     return view('daftar');
 });
 
+Route::post('/test-logout', function () {
+    dd('Test logout hit');
+})->name('test-logout');
+
 Route::get('/diagnosa', [RekamJejakController::class, 'diagnosaPasien'])->name('diagnosa.new');
 Route::get('/diagnosa-berhasil', [RekamJejakController::class, 'diagnosaSukses'])->name('diagnosa.success');
 Route::post('/diagnosa-baru', [RekamJejakController::class, 'submit']);

@@ -60,7 +60,7 @@
                                         <i class="bi bi-pencil"></i>
                                     </a>
                                     <form action="{{ route('admin.pasien.delete', $p) }}" method="POST"
-                                        style="display:inline;">
+                                        style="display:inline;" id="delete-form">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger"
@@ -79,9 +79,15 @@
                     </td>
                 </tr>
             </table>
-
-
         </div>
+
+        <form id="logout-form" method="POST" action="{{ route('logout') }}"
+            onsubmit="event.stopPropagation(); return true;">
+            @csrf
+            <button type="submit" class="btn btn-danger">
+                Logout
+            </button>
+        </form>
     </div>
 
     <!-- Modal -->
@@ -150,6 +156,10 @@
     </script>
 
     <script>
+        document.getElementById('logout-form').addEventListener('submit', function() {
+            document.querySelector('button[type="submit"]').disabled = true;
+        });
+
         document.addEventListener("DOMContentLoaded", function() {
             const updatePasienModal = document.getElementById("updatePasien");
 
