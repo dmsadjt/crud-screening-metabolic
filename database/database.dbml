@@ -50,3 +50,4 @@ Table rekomendasi as A {
 
 Ref: A.diagnosis_id > D.id
 
+

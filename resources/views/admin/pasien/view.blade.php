@@ -102,9 +102,9 @@
                                         data-bs-target="#rekomendasi" data-diagnosis={{ $item->diagnosa }}>
                                         <i class="bi bi-file-earmark-medical"></i>
                                     </a>
-                                    <a class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#toga"
-                                        {{-- data-diagnosis={{ $item->toga }}> --}}><i class="bi bi-flower3"></i>
-                                    </a>
+                                    {{-- <a class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#toga" --}}
+                                    {{-- data-diagnosis={{ $item->toga }}>><i class="bi bi-flower3"></i> --}}
+                                    {{-- </a> --}}
                                 @endif
                                 <form action="{{ route('admin.rekam.delete', $item) }}" method="POST"
                                     style="display:inline;">
